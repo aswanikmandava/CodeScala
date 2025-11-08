@@ -6,3 +6,11 @@ lazy val root = (project in file("."))
   .settings(
     name := "HelloWorld"
   )
+// bind the custom task
+lazy val customObj = taskKey[Unit]("My Custom task")
+customObj := {
+  // Calling the custom task
+  CustomTask.printTask()
+}
+
+exportJars := true
