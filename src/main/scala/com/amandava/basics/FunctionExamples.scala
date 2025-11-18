@@ -1,3 +1,5 @@
+package com.amandava.basics
+
 object FunctionExamples {
   // function with no args
   def sayHello(): Unit = {

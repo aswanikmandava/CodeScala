@@ -1,3 +1,5 @@
+package com.amandava.basics
+
 object IfElseIfExamples {
   def main(args: Array[String]): Unit = {
     val playerName: String = "Sachin"

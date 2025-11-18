@@ -1,3 +1,5 @@
+package com.amandava.basics
+
 object MatchExpressions {
   def main(args: Array[String]): Unit = {
     val fruit = "Kiwi"

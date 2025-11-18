@@ -1,3 +1,5 @@
+package com.amandava.basics
+
 object ControlStructures {
   def main(args: Array[String]): Unit = {
     var counter: Int = 0

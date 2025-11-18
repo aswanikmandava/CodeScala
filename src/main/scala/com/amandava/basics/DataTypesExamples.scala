@@ -1,3 +1,5 @@
+package com.amandava.basics
+
 object DataTypesExamples {
   def main(args: Array[String]): Unit = {
     val myInt = 10
