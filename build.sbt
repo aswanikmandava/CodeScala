@@ -14,3 +14,12 @@ customObj := {
 }
 
 exportJars := true
+
+// Add dependencies
+libraryDependencies ++= Seq(
+  // logging
+  "ch.qos.logback" % "logback-classic" % "1.5.21",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.6"
+)
+
+
