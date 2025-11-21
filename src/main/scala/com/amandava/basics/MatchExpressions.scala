@@ -10,6 +10,7 @@ object MatchExpressions {
       case "Orange" => println("Fruit of US")
       case _ => println("Some default fruit")
     }
+    println(result)
 
     // pattern matching using pipe => logical OR
     // using if condition
@@ -21,5 +22,6 @@ object MatchExpressions {
           myFruit.toLowerCase.contains("mango") => println("Star Fruit")
       case _ => println("Unknown fruit")
     }
+    println(result2)
   }
 }
