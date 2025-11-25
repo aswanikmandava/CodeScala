@@ -1,4 +1,4 @@
-package com.amandava.basics
+package com.amandava.functions
 
 object FunctionExamples {
   // function with no args

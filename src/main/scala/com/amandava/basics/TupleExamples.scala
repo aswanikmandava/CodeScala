@@ -14,10 +14,10 @@ object TupleExamples extends App {
   val weight = 0.5f
   val price = 2
   // iterate through tuples
-  val result = fruitList.foreach {
+  val result: Unit = fruitList.foreach {
     item => println(s"one: ${item._1}, two: ${item._2}, three: ${item._3}")
   }
-  val result_2 = fruitList.foreach {
+  val result_2: Unit = fruitList.foreach {
     tuple => {
       tuple match {
         case ("Gray", weight, price) => println("Kiwi fruit")
