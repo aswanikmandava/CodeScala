@@ -1,6 +1,7 @@
 package com.amandava.futures
 
 import scala.concurrent.Future
+// define an implicit execution context (global)
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Await
 import scala.concurrent.duration._
@@ -37,7 +38,7 @@ object FutureDemo extends App {
 
   // non-blocking call
   val milk = checkStock("Milk")
-  // use Future.onComplete() callback to capture the result of a Future
+  // attach Future.onComplete callback to handle the future result
   milk.onComplete {
     case Success(product) => println(s"Found inventory for milk: $product")
     case Failure(e) => println(s"Inventory check failed for milk: ${e.getMessage}")
