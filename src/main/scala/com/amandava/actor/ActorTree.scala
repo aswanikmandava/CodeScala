@@ -8,6 +8,8 @@ object ActorTree extends App {
   case object CreateChild
   case object SignalChildren
   case object PrintChild
+  // signal a specific child using its path in ActorSystem
+  case class SignalChild(c_path: String)
   class ParentActor(name: String) extends Actor {
     private var count = 0
     // create a dynamic array to store actor refs
@@ -21,6 +23,10 @@ object ActorTree extends App {
       case SignalChildren =>
         // send a message to each child using PrintChild structure
         children.foreach(_ ! PrintChild)
+      case SignalChild(cpath) =>
+        val child = context.system.actorSelection(cpath)
+        println(s"Sending msg to a child using path $cpath")
+        child ! PrintChild
 
     }
   }
@@ -40,6 +46,9 @@ object ActorTree extends App {
   actor1 ! SignalChildren
   actor1 ! CreateChild
   actor1 ! SignalChildren
+  // send a message to specific child using its path
+  actor1 ! SignalChild("/user/P1/C-1")
+
   Thread.sleep(2000)
   mySystem.terminate()
 }

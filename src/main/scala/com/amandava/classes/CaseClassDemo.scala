@@ -1,5 +1,6 @@
 package com.amandava.classes
 
+import upickle.default._
 object CaseClassDemo extends App {
 
   case class Pet(name: String, color: String, weight: Option[Double] = None)
@@ -8,6 +9,25 @@ object CaseClassDemo extends App {
   val blackCat = Pet("Cat", "Black", Some(12.30))
   val whiteDog = Pet("Dog", "White")
   val whiteDog2 = Pet("Dog", "White")
+
+  // case class has built-in support for pattern matching
+  blackCat match {
+    case Pet(name, value, weight) => println(s"Name: $name, value: $value, weight: $weight")
+  }
+
+  println(s"printing whiteDog ...")
+  println(whiteDog.getClass)
+  println(whiteDog)
+  // serialize the Pet object into json format
+  implicit val petRw: ReadWriter[Pet] = macroRW
+  val whiteDogJson = write(whiteDog)
+  println(s"whiteDog json: $whiteDogJson")
+
+  // re-construct the object using the json
+  implicit val petR: Reader[Pet] = macroR
+  val whiteDogJsonObj = read[Pet](whiteDogJson)
+  println(whiteDogJsonObj.getClass)
+  println(whiteDogJsonObj)
 
   // copy an object and override values
   val grayCat = blackCat.copy(name="Cat", color = "Gray")
