@@ -48,6 +48,10 @@ object ActorTree extends App {
   actor1 ! SignalChildren
   // send a message to specific child using its path
   actor1 ! SignalChild("/user/P1/C-1")
+  // send a message to all child actors under "/user/P1" using wildcard character
+  // actor1 ! SignalChild("/user/P1/*")
+  // send a message to all actors
+  // actor1 ! SignalChild("/user/*")
 
   Thread.sleep(2000)
   mySystem.terminate()

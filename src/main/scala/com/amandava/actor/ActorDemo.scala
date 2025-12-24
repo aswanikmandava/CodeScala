@@ -2,6 +2,7 @@ package com.amandava.actor
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
+// this demonstrates the Akka tell pattern
 object ActorDemo extends App {
   // create an actor class
   class MyActor extends Actor {
